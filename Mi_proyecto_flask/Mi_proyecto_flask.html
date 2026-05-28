@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Paisa | Inicio</title>
+    <style>
+        /* --- ESTILOS DE LA BARRA (Idéntica a tu captura) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0b0b0b; /* Fondo negro elegante */
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background-color: #0b0b0b;
+        }
+
+        .logo-central {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- CONTENEDOR DE LAS 3 IMÁGENES EN FILA --- */
+        .contenedor-tres-imagenes {
+            display: flex; /* Ponle las imágenes en fila horizontal */
+            justify-content: space-between; /* Distribuye el espacio uniformemente */
+            gap: 20px; /* La separación exacta que quieres entre las fotos */
+            padding: 20px 60px; /* Alineado con el margen de la barra de arriba */
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Fuerza a que las 3 fotos tengan exactamente el mismo tamaño */
+        .columna-foto {
+            flex: 1; /* Hace que las 3 cajas midan exactamente lo mismo */
+            overflow: hidden;
+        }
+
+        .columna-foto img {
+            width: 100%; /* Se adapta al tamaño de la columna */
+            height: 250px; /* Ajusta este número si quieres que sean más altas o bajas */
+            object-fit: cover; /* Corta la imagen mágicamente para que no se vea estirada ni deforme */
+            display: block;
+        }
+        /* --- ESTILOS PARA EL PIE DE PÁGINA --- */
+        .pie-pagina {
+            background-color: #1a1a1a; /* El color gris oscuro mate para acoplar */
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-top: 1px solid #2b2b2b;
+            margin-top: 40px;
+        }
+
+        .columna-footer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 13px;
+            color: #a3a3a3; /* Gris claro para los textos secundarios */
+        }
+
+        .columna-footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .columna-footer a:hover {
+            color: #d1127a; /* Un toque de brillo al pasar el mouse */
+        }
+
+        /* Alineaciones específicas para calzar con tu imagen */
+        .columna-footer.centro {
+            text-align: center;
+        }
+
+        .columna-footer.derecha {
+            text-align: right;
+        }
+
+        /* Estilos de textos destacados dentro del footer */
+        .redes, .dias {
+            color: #ffffff;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+        }
+
+        .columna-footer p {
+            margin: 0;
+        }
+
+        /* Contenedor del Libro de Reclamaciones */
+        .libro-reclamaciones {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TU BARRA DE NAVEGACIÓN -->
+    <header>
+        <h1 class="logo-central">EL PAISA</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Historia</a></li>
+                <li><a href="productos.html">La Carta</a></li>
+                <li><a href="nosotros.html">Reservas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===================================================
+         LAS 3 IMÁGENES SEPARADAS Y DEL MISMO TAMAÑO
+         =================================================== -->
+    <div class="contenedor-tres-imagenes">
+        
+        <!-- Imagen 1 -->
+        <div class="columna-foto">
+            <img src="IMAGENES/ajidegallina.jpg" alt="Imagen 1">
+        </div>
+
+        <!-- Imagen 2 -->
+        <div class="columna-foto">
+            <img src="IMAGENES/ceviche.jpg" alt="Imagen 2">
+        </div>
+
+        <!-- Imagen 3 -->
+        <div class="columna-foto">
+            <img src="IMAGENES/lomosaltado.jpg" alt="Imagen 3">
+        </div>
+
+    </div>
+
+</body>
+<!-- ===================================================
+         PIE DE PÁGINA (Footer al estilo Central)
+         =================================================== -->
+    <footer class="pie-pagina">
+        <!-- Columna Izquierda: Enlaces legales -->
+        <div class="columna-footer">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos & Condiciones</a>
+            <a href="#">Libro de reclamaciones</a>
+            </div>
+        </div>
+
+        <!-- Columna Central: Redes y Contacto -->
+        <div class="columna-footer centro">
+            <p class="redes">@ELPAISAREST</p>
+            <p>Av. Principal 123, Miraflores, Lima, Perú.</p>
+            <p>+51 1 234-5678 / <a href="mailto:reservas@elpaisa.com.pe">reservas@elpaisa.com.pe</a></p>
+        </div>
+
+        <!-- Columna Derecha: Horarios -->
+        <div class="columna-footer derecha">
+            <p class="dias">Lunes a Sábado</p>
+            <p>Almuerzo: 12:45 - 15:30</p>
+            <p>Cena: 19:00 - 23:00</p>
+        </div>
+    </footer>
+</html>
