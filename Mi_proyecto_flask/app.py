@@ -1,9 +1,7 @@
-# Importamos la herramienta Flask y la función para procesar texto HTML directo
 from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-# --- TU CÓDIGO HTML INTEGRADO (Ajustado con imágenes estables de internet) ---
 html_paisa = """
 <!DOCTYPE html>
 <html lang="es">
@@ -65,16 +63,15 @@ html_paisa = """
             width: 100%;
         }
 
-        /* Fuerza a que las 3 fotos tengan exactamente el mismo tamaño */
         .columna-foto {
-            flex: 1; /* Hace que las 3 cajas midan exactamente lo mismo */
+            flex: 1; 
             overflow: hidden;
         }
 
         .columna-foto img {
-            width: 100%; /* Se adapta al tamaño de la columna */
-            height: 350px; /* Ajustado para que luzcan tus platos */
-            object-fit: cover; /* Corta la imagen para que no se deforme */
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
             display: block;
         }
         
@@ -125,15 +122,155 @@ html_paisa = """
         .columna-footer p {
             margin: 0;
         }
+
+        /* --- ESTILOS DE COMBOS Y SERVICIOS --- */
+        .seccion-servicios, .seccion-crud {
+            padding: 40px 60px;
+            background-color: #0b0b0b;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #ffffff;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+        }
+
+        .contenedor-combos {
+            display: flex;
+            gap: 25px;
+            justify-content: space-between;
+        }
+
+        .tarjeta-combo {
+            background-color: #161616;
+            border: 1px solid #222;
+            padding: 25px;
+            flex: 1;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .tarjeta-combo:hover {
+            transform: translateY(-5px);
+            border-color: #ffffff;
+        }
+
+        .tarjeta-combo h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .descripcion-combo {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.5;
+            min-height: 60px;
+        }
+
+        .precio-combo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        .combo-badge {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background-color: #ffffff;
+            color: #0b0b0b;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            letter-spacing: 1px;
+        }
+
+        /* --- ESTILOS DEL CRUD --- */
+        .formulario-crud {
+            display: flex;
+            gap: 15px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .formulario-crud input {
+            flex: 1;
+            padding: 12px;
+            background-color: #161616;
+            border: 1px solid #333;
+            color: white;
+            font-size: 14px;
+        }
+
+        .formulario-crud input:focus {
+            outline: none;
+            border-color: #ffffff;
+        }
+
+        .formulario-crud button {
+            padding: 12px 24px;
+            background-color: #ffffff;
+            color: #0b0b0b;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .tabla-crud {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #161616;
+        }
+
+        .tabla-crud th, .tabla-crud td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+
+        .tabla-crud th {
+            background-color: #222;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-borrar {
+            background-color: transparent;
+            color: #ff4d4d;
+            border: 1px solid #ff4d4d;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .btn-borrar:hover {
+            background-color: #ff4d4d;
+            color: white;
+        }
     </style>
-</head>
 <body>
 
     <header>
         <h1 class="logo-central">EL PAISA</h1>
         <nav>
             <ul>
-                <li><a href="#">Historia</a></li>
+                <li><a href="https://regester-2ftc.onrender.com">Registrarse</a></li>
                 <li><a href="#">La Carta</a></li>
                 <li><a href="#">Reservas</a></li>
                 <li><a href="#">Contacto</a></li>
@@ -153,6 +290,64 @@ html_paisa = """
         </div>
     </div>
 
+    <section class="seccion-servicios">
+        <h2 class="titulo-seccion">Combos & Servicios Especiales</h2>
+        
+        <div class="contenedor-combos">
+            <div class="tarjeta-combo">
+                <div class="combo-badge">Popular</div>
+                <h3>Combo Paisa Familiar</h3>
+                <p class="descripcion-combo">Lleva 1 Ceviche Clásico + 1 Lomo Saltado Grande + 1 Jarra de Chicha Morada de 1.5L.</p>
+                <div class="precio-combo">S/ 85.00</div>
+            </div>
+
+            <div class="tarjeta-combo">
+                <div class="combo-badge">Recomendado</div>
+                <h3>Combo Tradición Dúo</h3>
+                <p class="descripcion-combo">Perfecto para dos. 2 Ají de Gallina + 2 Bebidas personales a elección + Postre del día.</p>
+                <div class="precio-combo">S/ 55.00</div>
+            </div>
+
+            <div class="tarjeta-combo">
+                <h3>Servicio Catering Especial</h3>
+                <p class="descripcion-combo">¿Tienes un evento? Llevamos lo mejor de nuestra cocina a tu casa o empresa. Buffet criollo completo.</p>
+                <div class="precio-combo">Consultar</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-crud">
+        <h2 class="titulo-seccion">Panel de Administración de productos</h2>
+        
+        <div class="formulario-crud">
+            <input type="text" id="crud-nombre" placeholder="Nombre del nuevo plato (Ej: Seco de Res)">
+            <input type="text" id="crud-precio" placeholder="Precio (Ej: S/ 35.00)">
+            <button onclick="crearPlato()">Agregar a la Carta</button>
+        </div>
+
+        <table class="tabla-crud">
+            <thead>
+                <tr>
+                    <th>Plato</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="lista-platos">
+                <tr>
+                    <td>Ceviche Clásico</td>
+                    <td>S/ 38.00</td>
+                    <td><button class="btn-borrar" onclick="eliminarPlato(this)">Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td>Lomo Saltado</td>
+                    <td>S/ 42.00</td>
+                    <td><button class="btn-borrar" onclick="eliminarPlato(this)">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
     <footer class="pie-pagina">
         <div class="columna-footer">
             <a href="#">Política de Privacidad</a>
@@ -162,7 +357,7 @@ html_paisa = """
 
         <div class="columna-footer centro">
             <p class="redes">@ELPAISAREST</p>
-            <p>Av. Principal 123, Miraflores, Lima, Perú.</p>
+            <li><a href="#">ENCUENTRANOS AQUI!!</a></li>
             <p>+51 1 234-5678 / <a href="mailto:reservas@elpaisa.com.pe">reservas@elpaisa.com.pe</a></p>
         </div>
 
@@ -173,14 +368,75 @@ html_paisa = """
         </div>
     </footer>
 
+    <script>
+        function crearPlato() {
+            var nombre = document.getElementById("crud-nombre").value;
+            var precio = document.getElementById("crud-precio").value;
+
+            if (nombre === "" || precio === "") {
+                alert("Por favor, llena ambos campos para registrar el plato.");
+                return;
+            }
+
+            var tabla = document.getElementById("lista-platos");
+            var nuevaFila = document.createElement("tr");
+
+            // Concatenamos a la antigua usanza con comillas simples para evitar el conflicto con Flask
+            nuevaFila.innerHTML = '<td>' + nombre + '</td>' +
+                                  '<td>' + precio + '</td>' +
+                                  '<td><button class="btn-borrar" onclick="eliminarPlato(this)">Eliminar</button></td>';
+
+            tabla.appendChild(nuevaFila);
+
+            document.getElementById("crud-nombre").value = "";
+            document.getElementById("crud-precio").value = "";
+        }
+        function eliminarPlato(boton) {
+            if (confirm("¿Estás seguro de quitar este plato de la lista?")) {
+                var fila = boton.closest ? boton.closest("tr") : boton.parentNode.parentNode;
+                if (fila && fila.parentNode) {
+                    fila.parentNode.removeChild(fila);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+    
 </body>
 </html>
 """
-
 @app.route("/")
-def home():
+def Index():
     # Renderizamos el string que contiene todo tu diseño de El Paisa
     return render_template_string(html_paisa)
+
+@app.route("/registro")
+def registro():
+    return """
+    <html>
+    <body style="background-color:black; color:white; font-family:Arial;">
+        <h1>Registro de Personas</h1>
+
+        <form>
+            Código:<br>
+            <input type="text"><br><br>
+
+            Nombres:<br>
+            <input type="text"><br><br>
+
+            Apellidos:<br>
+            <input type="text"><br><br>
+
+            <button type="submit">Guardar</button>
+        </form>
+
+        <br><br>
+
+        <a href="/" style="color:white;">Volver al inicio</a>
+    </body>
+    </html>
+    """
 
 if __name__ == "__main__":
     # Arranca en el puerto 8080 que es el que te funciona de forma nativa
